@@ -46,7 +46,7 @@ export default function Login() {
           					<MaterialCommunityIcons name={rightIcon} size={26} color="#232323" />
         				</Pressable>
 				</View>
-					<View style={login.input1}>
+					<View style={login.viewentrar}>
 						<Pressable style={login.btnentrar} onPress={alert}>
       						<Text style={login.txtentrar}>Entrar</Text>
     					</Pressable>

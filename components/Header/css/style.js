@@ -17,8 +17,8 @@ export const telaheader = StyleSheet.create ({
         top: 10,
     },
     logo:{
-        width: 80,
-        height: 80,
+        width: 90,
+        height: 90,
         marginLeft: "auto",
         marginRight: "auto",
         resizeMode: "contain"
@@ -30,7 +30,7 @@ export const telaheader = StyleSheet.create ({
         top: 10,
     },
     viewfind: {
-        paddingTop:20,
+        paddingTop:0,
     },
     search:{
         width: 34,

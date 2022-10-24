@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const login = StyleSheet.create({
 	viewtela: {
+		flex: 3,
 		padding:50,
 		backgroundColor: "#efefff"
 	},
@@ -9,18 +10,19 @@ export const login = StyleSheet.create({
 		alignItems:'center'
 	},
 	logo: {
-		width:200,
-		height:200
+		width:150,
+		height:150,
+		resizeMode: "contain"
 	},
 	viewlogin: {
 		flexDirection: "row",
-		paddingTop: 70,
+		paddingTop: 100,
 	},
 	txtlogin: {
 		color: "#0c0031",
 		fontSize: 25,
 		fontWeight: 'bold',
-		textDecorationLine: 'underline',
+		
 		marginLeft: "auto",
 		marginRight: "auto"
 	},
@@ -28,6 +30,7 @@ export const login = StyleSheet.create({
 		color: "#0c0031",
 		fontSize: 25,
 		fontWeight: 'bold',
+		textDecorationLine: 'underline',
 		marginLeft: "auto",
 		marginRight: "auto"
 	},
@@ -75,10 +78,13 @@ export const login = StyleSheet.create({
 		backgroundColor: "#1d0940",
 		borderRadius: 5,
 		justifyContent: "center",
-		alignItems: "center"
+		alignItems: "center",
 	},
 	txtentrar: {
 		color: "white",
 		fontSize: 25,
+	},
+	viewentrar:{
+		paddingTop: 60,
 	}
 })

@@ -5,6 +5,7 @@ export const footer = StyleSheet.create ({
         flex:0,
         flexDirection: "row",
         backgroundColor: "#eacffe",
+		height:70
     },
     options: {
         marginLeft: "auto",
@@ -12,14 +13,14 @@ export const footer = StyleSheet.create ({
         margin:5,
     },
     imgfooter: {
-        width: 40,
-        height: 40,
+        width: 25,
+        height: 25,
         marginTop: 10,
         marginLeft: 10,
         marginRight: 10
     },
     txtfooter: {
-        fontSize:17,
+        fontSize:14,
         textAlign: "center",
         fontWeight: "bold",
         marginVertical:5
