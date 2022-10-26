@@ -1,9 +1,9 @@
 import { TextInput, View, Text, Pressable } from "react-native";
-import { login } from "../../css/Styles";
+import { login } from "../css/Styles";
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { useTogglePasswordVisibility } from '../../hooks/useTogglePasswordVisibility';
+import { useTogglePasswordVisibility } from './hooks/useTogglePasswordVisibility';
 import React, { useState } from 'react';
 
 export default function Main(props) {
