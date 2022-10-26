@@ -7,7 +7,9 @@ export const login = StyleSheet.create({
 		backgroundColor: "#efefff"
 	},
 	viewlogo: {
-		alignItems:'center'
+		alignItems:'center',
+		padding:50,
+		backgroundColor: "#efefff"
 	},
 	logo: {
 		width:150,
