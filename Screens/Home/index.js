@@ -1,13 +1,12 @@
 import { View } from "react-native";
-
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <View style={{flex: 1}}>
       <Header/>
-      <Footer/>
+	  <Footer/>
     </View>
   );
 }
