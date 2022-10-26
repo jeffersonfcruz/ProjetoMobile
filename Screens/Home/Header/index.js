@@ -9,21 +9,21 @@ export default function Header () {
                 <TouchableNativeFeedback
                     onPress={(alert)}
                     background={TouchableNativeFeedback.SelectableBackground()}>
-                    <Image source={require("../../assets/heart_icon.png")} style={telaheader.fav}/>
+                    <Image source={require("../../../assets/heart_icon.png")} style={telaheader.fav}/>
                 </TouchableNativeFeedback>
                 <TouchableNativeFeedback
                     onPress={(alert)}
                     background={TouchableNativeFeedback.SelectableBackground()}>
-                    <Image source={require("../../assets/logo.png")} style={telaheader.logo}/>
+                    <Image source={require("../../../assets/logo.png")} style={telaheader.logo}/>
                 </TouchableNativeFeedback>
                 <TouchableNativeFeedback
                     onPress={(alert)}
                     background={TouchableNativeFeedback.SelectableBackground()}>
-                    <Image source={require("../../assets/cart_icon.png")} style={telaheader.cart}/>
+                    <Image source={require("../../../assets/cart_icon.png")} style={telaheader.cart}/>
                 </TouchableNativeFeedback>
             </View>
             <View style={telaheader.viewfind}>
-                <Image source={require("../../assets/search_icon.png")} style={telaheader.search}/>
+                <Image source={require("../../../assets/search_icon.png")} style={telaheader.search}/>
                     <TextInput
                         style={telaheader.input}
                         placeholder="Pesquisar"
