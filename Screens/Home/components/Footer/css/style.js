@@ -5,7 +5,7 @@ export const footer = StyleSheet.create ({
         flex:0,
         flexDirection: "row",
         backgroundColor: "#eacffe",
-		height:70
+		height:65
     },
     options: {
         marginLeft: "auto",

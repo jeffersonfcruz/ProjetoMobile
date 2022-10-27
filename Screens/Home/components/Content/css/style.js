@@ -24,9 +24,6 @@ export const content = StyleSheet.create ({
 		flex:2,
 		alignItems: "center",
 		justifyContent: "center",
-    	flexDirection: 'row',
-    	flexWrap: 'wrap',
-		marginTop: 50,
 	},
 	produtos: {
 		borderBottomColor: "black",
@@ -37,7 +34,7 @@ export const content = StyleSheet.create ({
 		alignItems: "center",
 		marginLeft: 25,
 		marginRight: 25,
-		marginTop: 60,
+		marginTop: 40,
 	},
 	imageprod: {
 		borderWidth: 1,
@@ -48,6 +45,14 @@ export const content = StyleSheet.create ({
 	},
 	txtprod: {
 		fontSize: 20,
-		}
+		marginTop: 5
+		},
+		scrollview: {
+			flexDirection: "row",
+			flexWrap: "wrap",
+			justifyContent: "center",
+			alignItems: "center",
+			marginVertical: -10,
+		},
     }
 )
