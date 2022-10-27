@@ -24,7 +24,6 @@ export const login = StyleSheet.create({
 		color: "#0c0031",
 		fontSize: 25,
 		fontWeight: 'bold',
-		
 		marginLeft: "auto",
 		marginRight: "auto"
 	},

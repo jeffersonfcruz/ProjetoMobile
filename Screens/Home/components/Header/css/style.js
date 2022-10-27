@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const telaheader = StyleSheet.create ({
     fullview: {
-        flex: 1
+        flex: 0
     },
     header: {
         flexDirection: "row",
