@@ -1,8 +1,9 @@
 import { View } from "react-native";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Content from "./components/Content";
-import Detalhes from "../Detalhes/Content";
+import Footer from "./components/Footer";
+import Carrinho from "../Carrinho";
+import Detalhes from "../Detalhes";
 
 export default function Home() {
  

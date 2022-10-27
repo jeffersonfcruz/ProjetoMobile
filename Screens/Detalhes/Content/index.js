@@ -1,7 +1,7 @@
 import {Image, View, Text, TouchableOpacity, Button, StyleSheet } from "react-native";
 import { detalhes } from "./css/Styles";
 
-export default function Content() {
+export default function Content(props) {
 
 	const {idproduto} = props;
   
@@ -32,9 +32,37 @@ export default function Content() {
 		})
 		.catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
 	}, []);
-  
 
 	return (
+		<View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
+		  {carregando ? (
+			<ActivityIndicator size={100} color={"#ft04"} />
+		  ) : (
+			<View> 
+			<ScrollView horizontal={true}>
+			  <Image source={{uri:`${produtos.foto1}`}}style={{width: 400, height: 300, resizeMode:'cover',margin:20}} />
+			  <Image source={{uri:`${produtos.foto2}`}}style={{width: 400, height: 300, resizeMode:'cover',margin:20}} />
+			  <Image source={{uri:`${produtos.foto3}`}}style={{width: 400, height: 300, resizeMode:'cover',margin:20}} />
+			  <Image source={{uri:`${produtos.foto4}`}}style={{width: 400, height: 300, resizeMode:'cover',margin:20}} />
+			</ScrollView>
+			<View style={{flex:1, justifyContent:'center'}}/> 
+			  <Text>{produtos.nomeproduto} </Text>
+			  <Text>{produtos.categoria} </Text>
+			  <Text>{produtos.preco} </Text>
+			  <Text>{produtos.descricao} </Text>
+			  
+			<TouchableOpacity style={styles.btncarrinho}onPress={()=>alert("oi")}>
+			  <Text style={styles.txtcarrinho}>Adicionar ao carrinho</Text>
+			</TouchableOpacity>
+			</View>
+	
+		  )}
+		</View>
+	  );
+
+  
+
+	/*return (
     <View style={detalhes.teladetalhe}>
         <View style={detalhes.roupa}>
 			<Image source={require("../../assets/roupa.png")} style={detalhes.roupa}/>
@@ -67,5 +95,5 @@ export default function Content() {
         ADICIONE AO CARRINHO
         </Text>
     </View>
-    )
+    )*/
 }
