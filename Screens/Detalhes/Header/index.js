@@ -6,7 +6,7 @@ export default function Header() {
                 <TouchableNativeFeedback
                     onPress={(alert)}
                     background={TouchableNativeFeedback.SelectableBackground()}>
-                    <Image source={require("../../../../assets/logo.png")} style={telaheader.logo}/>
+                    <Image source={require("../../../assets/logo.png")} style={telaheader.logo}/>
                 </TouchableNativeFeedback>
             </View>
 	)

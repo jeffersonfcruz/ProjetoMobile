@@ -11,7 +11,7 @@ import {
 import { ipnode, ipspring } from "../../../config/ip";
 import { styles } from "../css/Styles";
 
-export default function Content(props: any) {
+export default function Content(props) {
   const { idusuario } = props;
 
   const [carregando, setCarregando] = useState(true);
