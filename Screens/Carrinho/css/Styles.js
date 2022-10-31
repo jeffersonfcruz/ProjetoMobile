@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
       logo: {
         width: 50,
         height: 50,
-        resizeMode: "cover",
+        resizeMode: "contain",
       },
       titulo: {
         fontSize: 20,
@@ -62,5 +62,9 @@ export const styles = StyleSheet.create({
         marginRight: "auto"
       },
       fecharpedido: {},
-      txtfecharpedido: {}
+      txtfecharpedido: {},
+	  viewlogo: {
+		backgroundColor: "white",
+		alignItems: "center",
+	  },
 });

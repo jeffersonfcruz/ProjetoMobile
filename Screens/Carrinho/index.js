@@ -7,11 +7,8 @@ export default function Carrinho() {
 
 
     return (
-        <View style={{flex:1}}>
-            <ScrollView>
-                <Header />
+        <View style={{flex:3, justifyContent: "center", alignItems: "center"}}>
                 <Content/>
-            </ScrollView>
         </View>
     )
 }

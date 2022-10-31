@@ -37,7 +37,7 @@ export default function Content(props) {
 	return (
 		<View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
 		  {carregando ? (
-			<ActivityIndicator size={100} color={"#ft04"} />
+			<ActivityIndicator size={100} color={"#0c0031"} />
 		  ) : (
 			<View> 
 			<ScrollView horizontal={true}>

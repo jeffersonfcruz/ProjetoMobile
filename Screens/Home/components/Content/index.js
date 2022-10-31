@@ -25,9 +25,9 @@ export default function Content(props) {
   */ 
   
   return (
-    <View style={{ flex: 2, justifyContent: "center", alignContent: "center" }}>
+    <View style={{ flex: 2, justifyContent: "center", alignContent: "center"}}>
       {carregando ? (
-        <ActivityIndicator size={300} color={"#0c0031"} />
+        <ActivityIndicator size={100} color={"#0c0031"} />
       ) : (
         produtos.map((itens, ix) => (
           <View key={ix} style={content.viewprodutos}>

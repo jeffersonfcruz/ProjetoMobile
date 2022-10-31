@@ -25,11 +25,9 @@ export default function Home() {
 
 function Inicio({navigation}) {
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 2}}>
       		<Header tela={navigation}/>
-		<ScrollView>
 	  		<Content tela={navigation}/>
-	  	</ScrollView>
 	  		<Footer/>
     </View>
   );
