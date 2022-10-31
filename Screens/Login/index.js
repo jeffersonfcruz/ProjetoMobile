@@ -6,7 +6,7 @@ export default function Login({ navigation }) {
   return (
     <View style={{flex: 1}}>
       <Header/>
-	  <Main acao = { navigation }/>
+	    <Main acao = { navigation }/>
     </View>
   );
 }

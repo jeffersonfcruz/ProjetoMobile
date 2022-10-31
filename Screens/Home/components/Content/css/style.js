@@ -21,7 +21,7 @@ export const content = StyleSheet.create ({
 		flex:1,
 	},
 	viewprodutos: {
-		flex:2,
+		flex:1,
 		alignItems: "center",
 		justifyContent: "center",
 	},

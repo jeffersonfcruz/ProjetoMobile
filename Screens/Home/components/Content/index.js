@@ -1,9 +1,10 @@
-import { ScrollView, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { ScrollView, Text, View, ActivityIndicator } from "react-native";
 import { content } from "./css/style";
 
 export default function Content(props) {
 	const [carregando, setcarregando] = useState(true);
-  const [produtos, setProdutos] = useState([
+  	const [produtos, setProdutos] = useState([
     {
       idproduto: "",
       nomeproduto: "",
@@ -12,7 +13,7 @@ export default function Content(props) {
     },
   ]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetch(`${ipspring}/api/produto/listar`)
       .then((response) => response.json())
       .then((rs) => {
@@ -21,35 +22,31 @@ export default function Content(props) {
       })
       .catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
   }, []);
+  */ 
   
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
-      <Text>Conteúdo</Text>
+    <View style={{ flex: 2, justifyContent: "center", alignContent: "center" }}>
       {carregando ? (
-        <ActivityIndicator size={100} color={"#ft04"} />
+        <ActivityIndicator size={300} color={"#0c0031"} />
       ) : (
         produtos.map((itens, ix) => (
-          <View key={ix}>
-            <TouchableOpacity onPress={()=>props.tela.navigate("Detalhes",{idproduto:itens.idproduto})}>
-              <Image
-              source={{ uri: itens.foto1 }}
-              style={{ width: 100, height: 100, resizeMode: "cover" }}/>
-            <Text>{itens.nomeproduto}</Text>
-            <Text>{itens.preco}</Text>
-            </TouchableOpacity>
+          <View key={ix} style={content.viewprodutos}>
+				<View style={content.produtos}>
+            		<TouchableOpacity onPress={()=>props.tela.navigate("Detalhes",{idproduto:itens.idproduto})}>
+              			<Image
+              			source={{ uri: itens.foto1 }}
+              			style={content.imageprod}/>
+            			<Text style={content.txtprod}>{itens.nomeproduto}</Text>
+            			<Text style={content.txtprod}>{itens.preco}</Text>
+            		</TouchableOpacity>
+				</View>
           </View>
         ))
       )}
     </View>
   );
  
- 
- 
- 
- 
- 
- 
-  /*return (
+  /* return (
 		<View style={content.viewprincipal}>
 			<View style={content.viewlista}>
 				<Text style={content.txthome}>LANCAMENTOS</Text>
@@ -71,68 +68,9 @@ export default function Content(props) {
 							<View style={content.imageprod}></View>
 							<Text style={content.txtprod}>Produto1</Text>
 						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto9</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto1</Text>
-						</View>
-						<View style={content.produtos}>
-							<View style={content.imageprod}></View>
-							<Text style={content.txtprod}>Produto9</Text>
-						</View>
 					</ScrollView>
 				</View>
 		</View>
-	)*/
+	)
+	*/
 }
