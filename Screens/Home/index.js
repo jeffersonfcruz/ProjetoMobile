@@ -17,7 +17,7 @@ export default function Home() {
 		<Stack.Navigator>
 		  <Stack.Screen name = "Inicio" component={Inicio} options={{headerShown:false}}/>
 		  <Stack.Screen name = "Detalhes" component={Detalhes}/>
-		  <Stack.Screen name= "Carrinho" component={Carrinho}/>
+		  <Stack.Screen name = "Carrinho" component={Carrinho}/>
 		</Stack.Navigator>
 	  </NavigationContainer>
 	)
@@ -26,10 +26,10 @@ export default function Home() {
 function Inicio({navigation}) {
   return (
     <View style={{flex: 1}}>
-		<ScrollView>
       		<Header tela={navigation}/>
+		<ScrollView>
 	  		<Content tela={navigation}/>
-	  </ScrollView>
+	  	</ScrollView>
 	  		<Footer/>
     </View>
   );

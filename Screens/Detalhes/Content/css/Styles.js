@@ -82,6 +82,19 @@ ladolado:{
 	flexDirection: "row",
 	marginRight: 100,
 },
-
+btnadicionar: {
+	width: 130,
+	height: 45,
+	marginRight: "auto",
+	marginLeft: "auto",
+	backgroundColor: "#1d0940",
+	borderRadius: 5,
+	justifyContent: "center",
+	alignItems: "center",
+},
+txtadicionar: {
+	color: "white",
+	fontSize: 25,
+},
 
 });

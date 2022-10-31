@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    header: {
+      header: {
         flexDirection: "row",
         backgroundColor: "black",
         justifyContent: "space-between",

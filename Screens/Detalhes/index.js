@@ -7,8 +7,8 @@ export default function Detalhes({route}) {
 
     return (
         <View style={{flex:1}}>
-            <ScrollView>
             	<Header/>
+            <ScrollView>
             	<Content idproduto={idproduto} />
             </ScrollView>
         </View>

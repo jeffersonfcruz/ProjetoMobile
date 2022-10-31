@@ -4,8 +4,8 @@ import { styles } from "../css/Styles"
 
 export default function Header () {
     return (
-                <View style={login.viewlogo}>
-					<Image source={require("../../../assets/logo.png")} style={login.logo}/>
+                <View style={styles.viewlogo}>
+					<Image source={require("../../../assets/logo.png")} style={styles.logo}/>
 				</View>
     )
 }

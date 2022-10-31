@@ -22,7 +22,7 @@ export default function Content(props) {
 	  },
 	);
   
-	useEffect(() => {
+	/*useEffect(() => {
 	  fetch(`${ipspring}/api/produto/pesquisar/${idproduto}`)
 		.then((response) => response.json())
 		.then((rs) => {
@@ -32,6 +32,7 @@ export default function Content(props) {
 		})
 		.catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
 	}, []);
+*/
 
 	return (
 		<View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
@@ -40,10 +41,10 @@ export default function Content(props) {
 		  ) : (
 			<View> 
 			<ScrollView horizontal={true}>
-			  <Image source={{uri:`${produtos.foto1}`}}style={{width: 400, height: 300, resizeMode:'cover',margin:20}} />
-			  <Image source={{uri:`${produtos.foto2}`}}style={{width: 400, height: 300, resizeMode:'cover',margin:20}} />
-			  <Image source={{uri:`${produtos.foto3}`}}style={{width: 400, height: 300, resizeMode:'cover',margin:20}} />
-			  <Image source={{uri:`${produtos.foto4}`}}style={{width: 400, height: 300, resizeMode:'cover',margin:20}} />
+			  <Image source={{uri:`${produtos.foto1}`}} style={{width: 400, height: 300, resizeMode:'cover', margin:20}} />
+			  <Image source={{uri:`${produtos.foto2}`}} style={{width: 400, height: 300, resizeMode:'cover', margin:20}} />
+			  <Image source={{uri:`${produtos.foto3}`}} style={{width: 400, height: 300, resizeMode:'cover', margin:20}} />
+			  <Image source={{uri:`${produtos.foto4}`}} style={{width: 400, height: 300, resizeMode:'cover', margin:20}} />
 			</ScrollView>
 			<View style={{flex:1, justifyContent:'center'}}/> 
 			  <Text>{produtos.nomeproduto} </Text>
@@ -51,9 +52,9 @@ export default function Content(props) {
 			  <Text>{produtos.preco} </Text>
 			  <Text>{produtos.descricao} </Text>
 			  
-			<TouchableOpacity style={styles.btncarrinho}onPress={()=>alert("oi")}>
-			  <Text style={styles.txtcarrinho}>Adicionar ao carrinho</Text>
-			</TouchableOpacity>
+			  	<Pressable style={detalhes.btnadicionar}>
+      				<Text style={detalhes.txtadicionar}> Adicionar ao Carrinho </Text>
+    			</Pressable>
 			</View>
 	
 		  )}
