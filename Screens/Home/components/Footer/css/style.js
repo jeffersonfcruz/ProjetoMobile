@@ -4,8 +4,10 @@ export const footer = StyleSheet.create ({
     container: {
         flex:0,
         flexDirection: "row",
-        backgroundColor: "#eacffe",
-		height:65
+        backgroundColor: "#afa6db",
+		height:65,
+        borderTopColor: "black",
+        borderWidth: 1,
     },
     options: {
         marginLeft: "auto",
