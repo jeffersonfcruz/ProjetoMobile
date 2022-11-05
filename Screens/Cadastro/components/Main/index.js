@@ -42,18 +42,18 @@ function efetuarCadastro() {
         nome == "" || 
         email == "" || 
         cpf == "" || 
-        usuario == "" || 
+        login == "" || 
         senha == "" ) {
             return Alert.alert("Erro","Você deve preencher todos os campos");
         }
-        fetch("http://10.26.49.27:8080/api/usuarios/cadastro", {
+        fetch("http://192.168.1.190/api/clientes/cadastro", {
             method: "POST",
             headers: {
                 accept: "application/json",
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nomeusuario: usuario,
+                login: usuario,
                 email: email,
                 cpf: cpf,
                 nomecompleto: nome,

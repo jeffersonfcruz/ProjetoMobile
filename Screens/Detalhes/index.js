@@ -3,13 +3,13 @@ import Content from "./Content";
 import Header from "./Header";
 
 export default function Detalhes({route}) {
-    const {idproduto}= route.params;
+    const {codigo}= route.params;
 
     return (
         <View style={{flex:1}}>
             	<Header/>
             <ScrollView>
-            	<Content idproduto={idproduto} />
+            	<Content codigo={codigo} />
             </ScrollView>
         </View>
     )

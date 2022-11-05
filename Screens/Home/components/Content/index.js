@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View, ActivityIndicator } from "react-native";
 import { content } from "./css/style";
-
+import {ipnode} from "../../../../config/ip";
 export default function Content(props) {
 	const [carregando, setcarregando] = useState(true);
   	const [produtos, setProdutos] = useState([
     {
-      idproduto: "",
-      nomeproduto: "",
-      preco: "",
-      foto1: "foto1.jpg",
+      codigo: "",
+      produto: "",
+      categoria: "",
+      venda: "",
     },
   ]);
 
-  /*useEffect(() => {
-    fetch(`${ipspring}/api/produto/listar`)
+  useEffect(() => {
+    fetch(`${ipnode}/api/produtos/listar`)
       .then((response) => response.json())
       .then((rs) => {
         setProdutos(rs);
@@ -22,7 +22,6 @@ export default function Content(props) {
       })
       .catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
   }, []);
-  */ 
   
   return (
     <View style={{ flex: 2, justifyContent: "center", alignContent: "center"}}>
@@ -32,12 +31,9 @@ export default function Content(props) {
         produtos.map((itens, ix) => (
           <View key={ix} style={content.viewprodutos}>
 				<View style={content.produtos}>
-            		<TouchableOpacity onPress={()=>props.tela.navigate("Detalhes",{idproduto:itens.idproduto})}>
-              			<Image
-              			source={{ uri: itens.foto1 }}
-              			style={content.imageprod}/>
-            			<Text style={content.txtprod}>{itens.nomeproduto}</Text>
-            			<Text style={content.txtprod}>{itens.preco}</Text>
+            		<TouchableOpacity onPress={()=>props.tela.navigate("Detalhes",{codigo:itens.codigo})}>
+            			<Text style={content.txtprod}>{itens.produto}</Text>
+            			<Text style={content.txtprod}>{itens.venda}</Text>
             		</TouchableOpacity>
 				</View>
           </View>

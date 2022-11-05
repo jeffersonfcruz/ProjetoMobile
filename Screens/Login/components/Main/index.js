@@ -1,5 +1,6 @@
-import { TextInput, View, Text, Pressable } from "react-native";
+import { TextInput, View, Text, Pressable, Alert } from "react-native";
 import { login } from "../css/Styles";
+import {ipnode} from "../../../../config/ip";
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -49,7 +50,7 @@ export default function Main(props) {
 				</View>
 					<View style={login.viewentrar}>
 						<Pressable style={login.btnentrar} onPress={() => {
-          				// efetuarLogin(usuario, senha); 
+          				efetuarLogin(usuario, senha); 
 		  				props.acao.navigate("Home");}}>
       						<Text style={login.txtentrar}>Entrar</Text>
     					</Pressable>
@@ -59,23 +60,23 @@ export default function Main(props) {
 	)
 }
 
-/*function efetuarLogin(usuario: any, senha: any) {
+function efetuarLogin(usuario,senha) {
 	if (usuario == "" || senha == "") {
 	  return Alert.alert("Erro", "Você deve preecher todos os campos");
 	}
   
-	fetch (`${ipnode}/api/usuarios/login`, {
+	fetch (`${ipnode}/api/clientes/login`, {
 	  method: "POST",
 	  headers: {
 		accept: "application/json",
 		"content-type": "application/json",
 	  },
 	  body: JSON.stringify({
-		nomeusuario: usuario,
+		login: usuario,
 		senha: senha,
 	  }),
 	})
 	  .then((response) => response.json())
 	  .then((rs) => console.log(rs))
 	  .catch((err) => console.error(`Erro -> ${err}`));
-  }*/
+  }
