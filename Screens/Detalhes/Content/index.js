@@ -1,40 +1,42 @@
-import {Image, View, Text, TouchableOpacity, Button, StyleSheet } from "react-native";
+import { Image, View, Text, TouchableOpacity, Button, StyleSheet, ActivityIndicator, ScrollView, Pressable } from "react-native";
 import { detalhes } from "./css/Styles";
+import { useEffect, useState } from "react";
+import {ipnode} from "../../../config/ip";
 
 export default function Content(props) {
 
-	const {idproduto} = props;
+	const {codigo} = props;
   
 	const [carregando, setcarregando] = useState(true);
   
 	const [produtos, setProdutos] = useState(
 	  {
-		idproduto: "",
-		nomeproduto: "",
+		codigo: "",
+		produto: "",
 		descricao: "",
 		categoria:"",
 		quantidade: 0,
-		preco: "",
-		foto1: "foto1.jpg",
-		foto2: "foto2.jpg",
-		foto3: "foto3.jpg",
-		foto4: "foto4.jpg",
+		venda: "",
+		foto1: "",
+		foto2: "",
+		foto3: "",
+		foto4: "",
 	  },
 	);
   
 	/*useEffect(() => {
-	  fetch(`${ipspring}/api/produto/pesquisar/${idproduto}`)
+	  fetch(`${ipnode}/api/produtos/listar/${codigo}`)
 		.then((response) => response.json())
 		.then((rs) => {
-		  setProdutos(rs);
+		  setProdutos(rs.output);
 		  setcarregando(false);
-		  console.log(rs);
+		  console.log(rs.output);
 		})
 		.catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
 	}, []);
-*/
+	*/
 
-	return (
+	/*return (
 		<View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
 		  {carregando ? (
 			<ActivityIndicator size={100} color={"#0c0031"} />
@@ -47,11 +49,11 @@ export default function Content(props) {
 			  <Image source={{uri:`${produtos.foto4}`}} style={{width: 400, height: 300, resizeMode:'cover', margin:20}} />
 			</ScrollView>
 			<View style={{flex:1, justifyContent:'center'}}/> 
-			  <Text>{produtos.nomeproduto} </Text>
-			  <Text>{produtos.categoria} </Text>
-			  <Text>{produtos.preco} </Text>
+			  <Text>{produtos.produto} </Text>
 			  <Text>{produtos.descricao} </Text>
-			  
+			  <Text>{produtos.categoria} </Text>
+			  <Text>{produtos.quantidade} </Text>
+			  <Text>{produtos.venda} </Text>
 			  	<Pressable style={detalhes.btnadicionar}>
       				<Text style={detalhes.txtadicionar}> Adicionar ao Carrinho </Text>
     			</Pressable>
@@ -60,13 +62,13 @@ export default function Content(props) {
 		  )}
 		</View>
 	  );
-
+*/
   
 
-	/*return (
+	return (
     <View style={detalhes.teladetalhe}>
         <View style={detalhes.roupa}>
-			<Image source={require("../../assets/roupa.png")} style={detalhes.roupa}/>
+			<Image source={require("../../../assets/roupa.png")} style={detalhes.roupa}/>
 		</View>
         	<Text style={detalhes.nomeroupa}>
 			Pijama Baby Doll
@@ -96,5 +98,5 @@ export default function Content(props) {
         ADICIONE AO CARRINHO
         </Text>
     </View>
-    )*/
+    )
 }

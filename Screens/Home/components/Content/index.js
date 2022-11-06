@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { ScrollView, Text, View, ActivityIndicator } from "react-native";
+import { Text, View, ActivityIndicator, TouchableOpacity } from "react-native";
 import { content } from "./css/style";
-import {ipnode} from "../../../../config/ip";
+import { ipnode } from "../../../../config/ip";
+
 export default function Content(props) {
 	const [carregando, setcarregando] = useState(true);
   	const [produtos, setProdutos] = useState([
@@ -17,8 +18,9 @@ export default function Content(props) {
     fetch(`${ipnode}/api/produtos/listar`)
       .then((response) => response.json())
       .then((rs) => {
-        setProdutos(rs);
+        setProdutos(rs.output);
         setcarregando(false);
+		console.log(rs.output);
       })
       .catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
   }, []);

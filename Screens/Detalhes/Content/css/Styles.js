@@ -4,7 +4,7 @@ export const detalhes = StyleSheet.create({
 	teladetalhe: {
 		width:"100%",
 		height:"100%",
-		backgroundColor: "#6cc6fe",
+		backgroundColor: "#afa6db",
     },
 	nomeroupa:{
 		fontSize: 25,

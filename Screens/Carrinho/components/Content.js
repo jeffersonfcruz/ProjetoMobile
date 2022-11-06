@@ -30,7 +30,7 @@ export default function Content(props) {
   ]);
 
   useEffect(() => {
-    fetch(`${ipnode}/api/usuarios/carrinho/2`)
+    fetch(`${ipnode}/api/clientes/carrinho/2`)
       .then((response) => response.json())
       .then((rs) => {
         setProdutos(rs.output);
