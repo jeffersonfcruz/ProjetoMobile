@@ -49,9 +49,9 @@ export default function Main() {
         />
         <Text style={perfil.infoconta}>Configurações</Text>
       </View>
-        <Pressable style={perfil.btnsair}>
-          <Text style={perfil.txtsair}>Sair</Text>
-        </Pressable>
+      <Pressable style={perfil.btnsair}>
+        <Text style={perfil.txtsair}>Sair</Text>
+      </Pressable>
     </View>
   );
 }

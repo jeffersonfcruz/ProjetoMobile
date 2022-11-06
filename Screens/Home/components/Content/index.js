@@ -4,8 +4,8 @@ import { content } from "./css/style";
 import { ipnode } from "../../../../config/ip";
 
 export default function Content(props) {
-	const [carregando, setcarregando] = useState(true);
-  	const [produtos, setProdutos] = useState([
+  const [carregando, setcarregando] = useState(true);
+  const [produtos, setProdutos] = useState([
     {
       codigo: "",
       produto: "",
@@ -20,30 +20,34 @@ export default function Content(props) {
       .then((rs) => {
         setProdutos(rs.output);
         setcarregando(false);
-		console.log(rs.output);
+        console.log(rs.output);
       })
       .catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
   }, []);
-  
+
   return (
-    <View style={{ flex: 2, justifyContent: "center", alignContent: "center"}}>
+    <View style={{ flex: 2, justifyContent: "center", alignContent: "center" }}>
       {carregando ? (
         <ActivityIndicator size={100} color={"#0c0031"} />
       ) : (
         produtos.map((itens, ix) => (
           <View key={ix} style={content.viewprodutos}>
-				<View style={content.produtos}>
-            		<TouchableOpacity onPress={()=>props.tela.navigate("Detalhes",{codigo:itens.codigo})}>
-            			<Text style={content.txtprod}>{itens.produto}</Text>
-            			<Text style={content.txtprod}>{itens.venda}</Text>
-            		</TouchableOpacity>
-				</View>
+            <View style={content.produtos}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.tela.navigate("Detalhes", { codigo: itens.codigo })
+                }
+              >
+                <Text style={content.txtprod}>{itens.produto}</Text>
+                <Text style={content.txtprod}>{itens.venda}</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         ))
       )}
     </View>
   );
- 
+
   /* return (
 		<View style={content.viewprincipal}>
 			<View style={content.viewlista}>

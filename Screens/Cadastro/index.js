@@ -3,10 +3,10 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 
 export default function Cadastro() {
-	return (
-		<View style={{flex: 1}}>
-			<Header/>
-			<Main/>
-		</View>
-	)
+  return (
+    <View style={{ flex: 1 }}>
+      <Header />
+      <Main />
+    </View>
+  );
 }

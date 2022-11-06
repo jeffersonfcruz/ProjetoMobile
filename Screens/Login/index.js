@@ -4,9 +4,9 @@ import Main from "./components/Main";
 
 export default function Login({ navigation }) {
   return (
-    <View style={{flex: 1}}>
-      <Header/>
-	    <Main acao = { navigation }/>
+    <View style={{ flex: 1 }}>
+      <Header />
+      <Main acao={navigation} />
     </View>
   );
 }

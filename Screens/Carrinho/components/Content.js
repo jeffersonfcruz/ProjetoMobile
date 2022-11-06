@@ -48,16 +48,30 @@ export default function Content(props) {
         <View>
           <ScrollView horizontal={false}>
             {produtos.map((itens, ix) => (
-              <View key={ix} style={{ flex: 1, justifyContent: "center", borderBottomWidth: 1, padding: 10, borderColor: "silver", flexDirection: "row"}}>
-                <View style={{flexDirection: "column", flex:1}}>
-                  <Text style={styles.produto}>Produto: {itens.nomeproduto}</Text>
+              <View
+                key={ix}
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  borderBottomWidth: 1,
+                  padding: 10,
+                  borderColor: "silver",
+                  flexDirection: "row",
+                }}
+              >
+                <View style={{ flexDirection: "column", flex: 1 }}>
+                  <Text style={styles.produto}>
+                    Produto: {itens.nomeproduto}
+                  </Text>
                   <Text style={styles.preco}>Preço: R$ {itens.preco}</Text>
-                  
-                  <Text style={styles.preco}>Subtotal: R$ {itens.subtotal}</Text>
+
+                  <Text style={styles.preco}>
+                    Subtotal: R$ {itens.subtotal}
+                  </Text>
 
                   <TouchableOpacity
-                  style={styles.btnremovercarrinho}
-                  onPress={() => alert("oi")}
+                    style={styles.btnremovercarrinho}
+                    onPress={() => alert("oi")}
                   >
                     <Text style={styles.txtcarrinho}>
                       <AntDesign name="delete" size={24} color="white" />
@@ -65,15 +79,25 @@ export default function Content(props) {
                     </Text>
                   </TouchableOpacity>
                 </View>
-                <View style={{flexDirection:"column", flex:1, alignItems: "center", justifyContent: "center"}}>
-                  <Text style={styles.quantidade}>Quantidade: {itens.quantidade}</Text>
+                <View
+                  style={{
+                    flexDirection: "column",
+                    flex: 1,
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Text style={styles.quantidade}>
+                    Quantidade: {itens.quantidade}
+                  </Text>
                 </View>
               </View>
             ))}
 
             <TouchableOpacity
               onPress={() => alert("Fechar")}
-              style={styles.fecharpedido}>
+              style={styles.fecharpedido}
+            >
               <Text style={styles.txtfecharpedido}>Fechar o pedido</Text>
             </TouchableOpacity>
           </ScrollView>
