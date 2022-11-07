@@ -1,24 +1,39 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  header: {
-    flexDirection: "row",
-    backgroundColor: "black",
-    justifyContent: "space-between",
+  pagcarrinho: {
+    justifyContent: "center",
+    backgroundColor: "#afa6db",
+    flex: 1,
+  },
+  viewlogo: {
+    flex: 1,
+    width: "100%",
     alignItems: "center",
-    flex: 2,
-    padding: 10,
-    paddingTop: 20,
   },
   logo: {
-    width: 50,
-    height: 50,
+    width: 80,
+    height: 80,
     resizeMode: "contain",
   },
-  titulo: {
-    fontSize: 20,
-    color: "white",
-    fontweight: "bold",
+  viewcarrinho: {
+    flex: 10,
+    justifyContent: "center",
+    alignContent: "center",
+  },
+  prodcarrinho: {
+    margin: 30,
+    borderBottomWidth: 1,
+    borderColor: "silver",
+    flexDirection: "row",
+  },
+  viewprod: {
+    flexDirection: "column",
+  },
+  viewquant: {
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
   },
   btncarrinho: {
     padding: 20,
@@ -52,19 +67,31 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingLeft: 10,
   },
-  btnremovercarrinho: {
-    backgroundColor: "black",
-    width: 100,
+  btnremover: {
+    width: 80,
     height: 30,
+    marginTop: 30,
+    backgroundColor: "red",
+    borderRadius: 5,
     justifyContent: "center",
-    borderRadius: 10,
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-  fecharpedido: {},
-  txtfecharpedido: {},
-  viewlogo: {
-    backgroundColor: "white",
     alignItems: "center",
+  },
+  txtremover: {
+    color: "white",
+    fontSize: 20,
+  },
+  fecharpedido: {
+    width: 200,
+    height: 40,
+    marginTop: 30,
+    backgroundColor: "#1d0940",
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  txtfecharpedido: {
+    color: "white",
+    fontSize: 25,
   },
 });

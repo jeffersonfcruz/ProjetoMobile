@@ -1,4 +1,3 @@
-import { AntDesign } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import {
   Image,
@@ -7,8 +6,9 @@ import {
   View,
   ActivityIndicator,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
-import { ipnode, ipspring } from "../../../config/ip";
+import { ipnode } from "../../../config/ip";
 import { styles } from "../css/Styles";
 
 import * as SQLite from "expo-sqlite";
@@ -32,9 +32,9 @@ export default function Content(props) {
       subtotal: "",
     },
   ]);
-
+  //${obterId()}
   useEffect(() => {
-    fetch(`${ipnode}/api/clientes/carrinho/${obterId()}`)
+    fetch(`${ipnode}/api/clientes/carrinho/2`)
       .then((response) => response.json())
       .then((rs) => {
         setProdutos(rs.output);
@@ -45,25 +45,15 @@ export default function Content(props) {
   }, []);
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignContent: "center" }}>
+    <View style={styles.viewcarrinho}>
       {carregando ? (
         <ActivityIndicator size={100} color="#0c0031" />
       ) : (
         <View>
           <ScrollView horizontal={false}>
             {produtos.map((itens, ix) => (
-              <View
-                key={ix}
-                style={{
-                  flex: 1,
-                  justifyContent: "center",
-                  borderBottomWidth: 1,
-                  padding: 10,
-                  borderColor: "silver",
-                  flexDirection: "row",
-                }}
-              >
-                <View style={{ flexDirection: "column", flex: 1 }}>
+              <View key={ix} style={styles.prodcarrinho}>
+                <View style={styles.viewprod}>
                   <Text style={styles.produto}>
                     Produto: {itens.nomeproduto}
                   </Text>
@@ -73,24 +63,11 @@ export default function Content(props) {
                     Subtotal: R$ {itens.subtotal}
                   </Text>
 
-                  <TouchableOpacity
-                    style={styles.btnremovercarrinho}
-                    onPress={() => alert("oi")}
-                  >
-                    <Text style={styles.txtcarrinho}>
-                      <AntDesign name="delete" size={24} color="white" />
-                      Remover
-                    </Text>
-                  </TouchableOpacity>
+                  <Pressable style={styles.btnremover}>
+                    <Text style={styles.txtremover}>Remover</Text>
+                  </Pressable>
                 </View>
-                <View
-                  style={{
-                    flexDirection: "column",
-                    flex: 1,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
+                <View style={styles.viewquant}>
                   <Text style={styles.quantidade}>
                     Quantidade: {itens.quantidade}
                   </Text>
