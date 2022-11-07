@@ -28,14 +28,15 @@ export default function Content(props) {
       .then((rs) => {
         setProdutos(rs.output);
         setcarregando(false);
-        console.log(rs.output);
       })
       .catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
   }, []);
 
   return (
     <View style={content.viewprincipal}>
-      <View style={content.banner}></View>
+      <View style={content.banner}>
+        <Image source={require("../../../../assets/nova.jpg")} style={content.imgbanner}/>
+      </View>
       <ScrollView horizontal={false} contentContainerStyle={content.scrollview}>
         {carregando ? (
           <ActivityIndicator size={100} color={"#0c0031"} />
@@ -49,9 +50,7 @@ export default function Content(props) {
                   }
                 >
                   <Image
-                    source={{
-                      uri: "https://cuplovershop.cdn.plataformaneo.com.br/produto/614190253_VTM146-1_614190253.jpg",
-                    }}
+                    source={{ uri: `${itens.foto1}` }}
                     style={content.imageprod}
                   />
                   <Text style={content.txtprod}>R$: {itens.venda}</Text>

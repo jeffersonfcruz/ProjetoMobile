@@ -5,9 +5,16 @@ export const content = StyleSheet.create({
     flex: 2,
   },
   banner: {
-    backgroundColor: "black",
-    height: "30%",
+    marginTop:20,
+    height: "25%",
     width: "100%",
+  },
+  imgbanner: {
+    height: "100%",
+    width: "95%",
+    resizeMode: "contain",
+    borderRadius: 20,
+    alignSelf: "center",
   },
   viewprodutos: {
     marginTop: 10,

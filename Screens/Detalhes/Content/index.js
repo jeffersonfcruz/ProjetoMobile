@@ -23,7 +23,7 @@ export default function Content(props) {
     produto: "",
     descricao: "",
     categoria: "",
-    quantidade: 0,
+    tamanho: "",
     venda: "",
     foto1: "",
     foto2: "",
@@ -35,9 +35,8 @@ export default function Content(props) {
     fetch(`${ipnode}/api/produtos/listar/${codigo}`)
       .then((response) => response.json())
       .then((rs) => {
-        setProdutos(rs.output);
+        setProdutos(rs.output[0]);
         setcarregando(false);
-        console.log(rs.output);
       })
       .catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
   }, []);
@@ -48,26 +47,23 @@ export default function Content(props) {
         <ActivityIndicator size={100} color={"#0c0031"} />
       ) : (
         <View>
+          <Text style={detalhes.categoria}>
+            Categoria: {produtos.categoria}{" "}
+          </Text>
           <ScrollView
             horizontal={true}
             contentContainerStyle={detalhes.scrollview}
           >
             <Image
-              source={{
-                uri: "https://cuplovershop.cdn.plataformaneo.com.br/produto/614190253_VTM146-1_614190253.jpg",
-              }}
+              source={{ uri: `${produtos.foto1}` }}
               style={detalhes.roupa}
             />
             <Image
-              source={{
-                uri: "https://cuplovershop.cdn.plataformaneo.com.br/produto/614190253_VTM146-1_614190253.jpg",
-              }}
+              source={{ uri: `${produtos.foto2}` }}
               style={detalhes.roupa}
             />
             <Image
-              source={{
-                uri: "https://cuplovershop.cdn.plataformaneo.com.br/produto/614190253_VTM146-1_614190253.jpg",
-              }}
+              source={{ uri: `${produtos.foto3}` }}
               style={detalhes.roupa}
             />
             <Image
@@ -77,10 +73,9 @@ export default function Content(props) {
           </ScrollView>
 
           <Text style={detalhes.nomeroupa}>{produtos.produto} </Text>
+          <Text style={detalhes.tamanho}>{produtos.tamanho} </Text>
           <Text style={detalhes.descricao}>{produtos.descricao} </Text>
-          <Text>{produtos.categoria} </Text>
-          <Text>{produtos.quantidade} </Text>
-          <Text style={detalhes.precoroupa}>{produtos.venda} </Text>
+          <Text style={detalhes.precoroupa}>R$: {produtos.venda} </Text>
           <Pressable style={detalhes.btnadicionar}>
             <Text style={detalhes.txtadicionar}> Adicionar ao Carrinho </Text>
           </Pressable>
