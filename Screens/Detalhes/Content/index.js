@@ -48,17 +48,26 @@ export default function Content(props) {
         <ActivityIndicator size={100} color={"#0c0031"} />
       ) : (
         <View>
-          <ScrollView horizontal={true}>
+          <ScrollView
+            horizontal={true}
+            contentContainerStyle={detalhes.scrollview}
+          >
             <Image
-              source={{ uri: `${produtos.foto1}` }}
+              source={{
+                uri: "https://cuplovershop.cdn.plataformaneo.com.br/produto/614190253_VTM146-1_614190253.jpg",
+              }}
               style={detalhes.roupa}
             />
             <Image
-              source={{ uri: `${produtos.foto2}` }}
+              source={{
+                uri: "https://cuplovershop.cdn.plataformaneo.com.br/produto/614190253_VTM146-1_614190253.jpg",
+              }}
               style={detalhes.roupa}
             />
             <Image
-              source={{ uri: `${produtos.foto3}` }}
+              source={{
+                uri: "https://cuplovershop.cdn.plataformaneo.com.br/produto/614190253_VTM146-1_614190253.jpg",
+              }}
               style={detalhes.roupa}
             />
             <Image
@@ -66,7 +75,7 @@ export default function Content(props) {
               style={detalhes.roupa}
             />
           </ScrollView>
-          <View style={{ flex: 1, justifyContent: "center" }} />
+
           <Text style={detalhes.nomeroupa}>{produtos.produto} </Text>
           <Text style={detalhes.descricao}>{produtos.descricao} </Text>
           <Text>{produtos.categoria} </Text>

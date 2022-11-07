@@ -3,70 +3,36 @@ import { StyleSheet } from "react-native";
 export const detalhes = StyleSheet.create({
   teladetalhes: {
     backgroundColor: "#afa6db",
-    height: "100%",
-    width: "100%",
+    flex: 3,
   },
   nomeroupa: {
     fontSize: 25,
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: 35,
-    margin: 10,
-    color: "black",
+    backgroundColor: "white",
   },
-  oferta: {
-    fontSize: 18,
-    backgroundColor: "red",
-    color: "white",
-    textAlign: "center",
-    margin: 5,
-    marginLeft: 35,
-  },
-
   descricao: {
     textAlign: "center",
-    marginLeft: 70,
+    color: "white",
+    backgroundColor: "white",
   },
-
   precoroupa: {
     fontSize: 20,
     fontWeight: "bold",
-    marginTop: 5,
     color: "black",
+    backgroundColor: "white",
   },
-
-  codroupa: {
-    fontSize: 15,
-    marginLeft: -3,
-    fontWeight: "bold",
-    margin: 10,
-  },
-
-  envio: {
-    fontWeight: "bold",
-    backgroundColor: "#269aed",
-    textAlign: "center",
-    fontSize: 16,
-    width: 150,
-    height: 25,
-    marginLeft: 7,
-    margin: 10,
-  },
-
   roupa: {
     resizeMode: "contain",
-    width: 270,
-    height: 270,
-    margin: 20,
-  },
-  ladolado: {
-    textAlign: "center",
-    flexDirection: "row",
-    marginRight: 100,
+    width: 400,
+    height: 400,
+    borderRadius: 20,
+    marginLeft: 30,
   },
   btnadicionar: {
     width: 250,
     height: 50,
+    marginTop: 30,
     marginRight: "auto",
     marginLeft: "auto",
     backgroundColor: "#1d0940",
@@ -77,5 +43,13 @@ export const detalhes = StyleSheet.create({
   txtadicionar: {
     color: "white",
     fontSize: 25,
+  },
+  scrollview: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+    marginVertical: 50,
   },
 });
