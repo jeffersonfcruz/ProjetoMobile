@@ -11,25 +11,24 @@ export const detalhes = StyleSheet.create({
   },
   descricao: {
     fontSize: 25,
-    marginTop: 10,
+    marginTop: 5,
     color: "black",
     marginLeft: 35,
   },
   categoria: {
-    marginLeft:35,
-    color: "white",
+    marginLeft: 35,
     fontSize: 20,
     marginTop: 10,
-    color: "black"
+    color: "black",
   },
-  tamanho:{
+  tamanho: {
     fontSize: 25,
     marginLeft: 35,
     backgroundColor: "white",
     borderRadius: 10,
     width: "10%",
     textAlign: "center",
-    marginTop:10
+    marginTop: 10,
   },
   precoroupa: {
     fontSize: 43,
@@ -40,7 +39,7 @@ export const detalhes = StyleSheet.create({
     backgroundColor: "white",
     width: "50%",
     borderRadius: 15,
-    marginTop:40,
+    marginTop: 40,
   },
   roupa: {
     resizeMode: "contain",
@@ -70,7 +69,7 @@ export const detalhes = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
-    marginVertical: 50,
+    marginTop: 10,
+    marginVertical: 40,
   },
 });

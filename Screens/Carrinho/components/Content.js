@@ -11,6 +11,10 @@ import {
 import { ipnode, ipspring } from "../../../config/ip";
 import { styles } from "../css/Styles";
 
+import * as SQLite from "expo-sqlite";
+
+const db = SQLite.openDatabase("mystore.banco");
+
 export default function Content(props) {
   const { idusuario } = props;
 
@@ -30,7 +34,7 @@ export default function Content(props) {
   ]);
 
   useEffect(() => {
-    fetch(`${ipnode}/api/clientes/carrinho/2`)
+    fetch(`${ipnode}/api/clientes/carrinho/${obterId()}`)
       .then((response) => response.json())
       .then((rs) => {
         setProdutos(rs.output);
@@ -105,4 +109,17 @@ export default function Content(props) {
       )}
     </View>
   );
+}
+async function obterId() {
+  let id = 0;
+  await db.transaction((ds) => {
+    ds.executeSql(
+      `select idusuario from dados order by id desc`,
+      [],
+      (_, { rows }) => {
+        console.log(rows._array[0].idusuario);
+        id = rows._array[0].idusuario;
+      }
+    );
+  });
 }

@@ -7,6 +7,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useTogglePasswordVisibility } from "./hooks/useTogglePasswordVisibility";
 import React, { useState } from "react";
 
+import * as SQLite from "expo-sqlite";
+
+const db = SQLite.openDatabase("mystore.banco");
+
 export default function Main(props) {
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
@@ -89,6 +93,34 @@ function efetuarLogin(usuario, senha) {
     }),
   })
     .then((response) => response.json())
-    .then((rs) => console.log(rs))
+    .then((rs) => {
+      console.log(rs);
+      gravarusuario(rs.payload[0].idcli, rs.output, rs.token);
+    })
     .catch((err) => console.error(`Erro -> ${err}`));
+}
+function gravarusuario(idcli, situacao, token) {
+  db.transaction((ts) => {
+    ts.executeSql(
+      `create table if not exists dados (
+		   id integer primary key,
+		   idusuario int,
+		   situacao text,
+		   token text,
+		 )`
+    );
+  });
+  db.transaction((tx) => {
+    tx.executeSql(
+      `insert into dados (
+		  idusuario,
+		  situacao,
+		  token
+		  ) values (?,?,?)`,
+      [idcli, situacao, token]
+    );
+    tx.executeSql(`select * from dados`, [], (_, { rows }) => {
+      console.log(rows);
+    });
+  });
 }
