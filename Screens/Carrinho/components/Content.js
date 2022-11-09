@@ -34,7 +34,7 @@ export default function Content(props) {
   ]);
 
   useEffect(() => {
-    fetch(`${ipnode}/api/clientes/carrinho/2`)
+    fetch(`${ipnode}/api/clientes/carrinho/1`)
       .then((response) => response.json())
       .then((rs) => {
         setProdutos(rs.output);
@@ -47,7 +47,7 @@ export default function Content(props) {
   return (
     <View style={styles.viewcarrinho}>
       {carregando ? (
-        <ActivityIndicator size={100} color="#0c0031" />
+        <ActivityIndicator size={100} color="#0c0031" style={{paddingTop: 400}}/>
       ) : (
         <View>
           <View style={{}}>

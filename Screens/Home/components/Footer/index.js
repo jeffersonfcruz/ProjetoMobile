@@ -27,7 +27,9 @@ export default function Footer(props) {
       </View>
       <View style={footer.options}>
         <TouchableOpacity
-          onPress={alert}
+          onPress={() => {
+            props.tela.navigate("Categoria");
+          }}
           background={TouchableNativeFeedback.SelectableBackground()}
         >
           <Image

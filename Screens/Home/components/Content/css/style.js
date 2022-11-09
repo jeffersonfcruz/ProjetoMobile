@@ -63,5 +63,6 @@ export const content = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
+    marginVertical: -30
   },
 });

@@ -8,6 +8,7 @@ import Perfil from "../Perfil";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Categoria from "../Categoria";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ export default function Home() {
         <Stack.Screen name="Detalhes" component={Detalhes} />
         <Stack.Screen name="Carrinho" component={Carrinho} />
         <Stack.Screen name="Perfil" component={Perfil} />
+        <Stack.Screen name="Categoria" component={Categoria} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

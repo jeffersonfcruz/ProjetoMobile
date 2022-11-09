@@ -39,7 +39,7 @@ export default function Content(props) {
       </View>
       <ScrollView horizontal={false} contentContainerStyle={content.scrollview}>
         {carregando ? (
-          <ActivityIndicator size={100} color={"#0c0031"} />
+          <ActivityIndicator size={100} color={"#0c0031"} style={{paddingTop: 200}}/>
         ) : (
           produtos.map((itens, ix) => (
             <View key={ix} style={content.viewprodutos}>

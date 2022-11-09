@@ -8,9 +8,11 @@ import {
   View,
 } from "react-native";
 import { styles } from "./css/style";
+import { ipnode } from "../../../../config/ip";
 
 export default function Main() {
-  const [nome, setNome] = useState("");
+  
+  const [nomecompleto, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
   const [usuario, setUsuario] = useState("");
@@ -22,7 +24,7 @@ export default function Main() {
         <TextInput
           style={styles.caixa}
           placeholder="Nome"
-          value={nome}
+          value={nomecompleto}
           onChangeText={(value) => setNome(value)}
         />
       </View>
@@ -65,7 +67,7 @@ export default function Main() {
         <Pressable
           style={styles.btntccadastrar}
           onPress={() => {
-            efetuarCadastro(nome, email, cpf, usuario, senha);
+            efetuarCadastro(nomecompleto, email, cpf, usuario, senha);
           }}
         >
           <Text style={styles.txtcadastrar}>Cadastrar</Text>
@@ -75,20 +77,20 @@ export default function Main() {
   );
 }
 function efetuarCadastro() {
-  if (nome == "" || email == "" || cpf == "" || login == "" || senha == "") {
+  if (nomecompleto == "" || email == "" || cpf == "" || login == "" || senha == "") {
     return Alert.alert("Erro", "Você deve preencher todos os campos");
   }
-  fetch("http://192.168.1.190/api/clientes/cadastro", {
+  fetch(`${ipnode}/api/clientes/cadastro`, {
     method: "POST",
     headers: {
       accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      login: usuario,
+      nome: nomecompleto,
+      usuario: login,
       email: email,
       cpf: cpf,
-      nomecompleto: nome,
       senha: senha,
     }),
   })
