@@ -3,11 +3,11 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   pagcarrinho: {
     justifyContent: "center",
-    backgroundColor: "#afa6db",
+    backgroundColor: "#efefff",
     flex: 1,
   },
   viewlogo: {
-    flex: 1,
+    flex: 0,
     width: "100%",
     alignItems: "center",
   },
@@ -17,23 +17,19 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   viewcarrinho: {
-    flex: 10,
-    justifyContent: "center",
-    alignContent: "center",
+    flex: 1,
   },
   prodcarrinho: {
-    margin: 30,
-    borderBottomWidth: 1,
-    borderColor: "silver",
-    flexDirection: "row",
+    marginTop: 40,
+    width: "80%",
+    alignSelf: "center",
   },
-  viewprod: {
-    flexDirection: "column",
-  },
+  viewprod: {},
   viewquant: {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "red",
   },
   btncarrinho: {
     padding: 20,
@@ -45,27 +41,28 @@ export const styles = StyleSheet.create({
     marginRight: "auto",
   },
   txtcarrinho: {
-    color: "white",
-    fontSize: 15,
+    fontSize: 35,
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "left",
+    paddingLeft: 40,
+    paddingTop: 40,
   },
   produto: {
-    padding: 10,
-    fontSize: 20,
+    textAlign: "center",
+    fontSize: 45,
     fontWeight: "bold",
   },
   preco: {
-    padding: 10,
-    color: "#900",
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 25,
+    color: "red",
+    paddingTop: 20,
   },
   quantidade: {
-    fontSize: 15,
+    paddingTop: 10,
+    fontSize: 20,
     color: "darkblue",
     fontWeight: "bold",
-    paddingLeft: 10,
   },
   btnremover: {
     width: 80,
@@ -83,12 +80,12 @@ export const styles = StyleSheet.create({
   fecharpedido: {
     width: 200,
     height: 40,
-    marginTop: 30,
     backgroundColor: "#1d0940",
     borderRadius: 5,
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
+    marginVertical: 200,
   },
   txtfecharpedido: {
     color: "white",

@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import { styles } from "./css/Styles";
 
 export default function Carrinho(route) {
-  //const { idusuario } = route.params;
+  //const { idcli } = route.params;
 
   return (
     <View style={styles.pagcarrinho}>

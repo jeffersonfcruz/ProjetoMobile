@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const detalhes = StyleSheet.create({
   teladetalhes: {
-    backgroundColor: "#afa6db",
+    backgroundColor: "#efefff",
     flex: 3,
   },
   nomeroupa: {
@@ -16,15 +16,16 @@ export const detalhes = StyleSheet.create({
     marginLeft: 35,
   },
   categoria: {
-    marginLeft: 35,
+    alignSelf: "center",
     fontSize: 20,
     marginTop: 10,
     color: "black",
   },
   tamanho: {
     fontSize: 25,
+    fontWeight: "bold",
     marginLeft: 35,
-    backgroundColor: "white",
+    backgroundColor: "silver",
     borderRadius: 10,
     width: "10%",
     textAlign: "center",
@@ -36,7 +37,7 @@ export const detalhes = StyleSheet.create({
     color: "black",
     textAlign: "center",
     alignSelf: "center",
-    backgroundColor: "white",
+    backgroundColor: "silver",
     width: "50%",
     borderRadius: 15,
     marginTop: 40,

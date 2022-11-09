@@ -16,14 +16,14 @@ import * as SQLite from "expo-sqlite";
 const db = SQLite.openDatabase("mystore.banco");
 
 export default function Content(props) {
-  const { idusuario } = props;
+  const { idcli } = props;
 
   const [carregando, setCarregando] = useState(true);
 
   const [produtos, setProdutos] = useState([
     {
       idcarrinho: "",
-      idusuario: "",
+      idcli: "",
       chavecarrinho: "",
       idproduto: "",
       nomeproduto: "",
@@ -32,7 +32,7 @@ export default function Content(props) {
       subtotal: "",
     },
   ]);
-  //${obterId()}
+
   useEffect(() => {
     fetch(`${ipnode}/api/clientes/carrinho/2`)
       .then((response) => response.json())
@@ -50,40 +50,33 @@ export default function Content(props) {
         <ActivityIndicator size={100} color="#0c0031" />
       ) : (
         <View>
+          <View style={{}}>
+            <Text style={styles.txtcarrinho}> Meu Carrinho </Text>
+          </View>
           <ScrollView horizontal={false}>
             {produtos.map((itens, ix) => (
               <View key={ix} style={styles.prodcarrinho}>
                 <View style={styles.viewprod}>
-                  <Text style={styles.produto}>
-                    Produto: {itens.nomeproduto}
+                  <Text style={styles.produto}>{itens.nomeproduto}</Text>
+                  <Text style={styles.quantidade}>
+                    Quantidade: {itens.quantidade}
                   </Text>
                   <Text style={styles.preco}>Preço: R$ {itens.preco}</Text>
-
-                  <Text style={styles.preco}>
-                    Subtotal: R$ {itens.subtotal}
-                  </Text>
-
                   <Pressable style={styles.btnremover}>
                     <Text style={styles.txtremover}>Remover</Text>
                   </Pressable>
                 </View>
-                <View style={styles.viewquant}>
-                  <Text style={styles.quantidade}>
-                    Quantidade: {itens.quantidade}
-                  </Text>
-                </View>
               </View>
             ))}
-
-            <TouchableOpacity
-              onPress={() => alert("Fechar")}
-              style={styles.fecharpedido}
-            >
-              <Text style={styles.txtfecharpedido}>Fechar o pedido</Text>
-            </TouchableOpacity>
           </ScrollView>
         </View>
       )}
+      <TouchableOpacity
+        onPress={() => alert("Fechar")}
+        style={styles.fecharpedido}
+      >
+        <Text style={styles.txtfecharpedido}>Finalizar Compra</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -94,8 +87,8 @@ async function obterId() {
       `select idusuario from dados order by id desc`,
       [],
       (_, { rows }) => {
-        console.log(rows._array[0].idusuario);
-        id = rows._array[0].idusuario;
+        console.log(rows._array[0].idcli);
+        id = rows._array[0].idcli;
       }
     );
   });
