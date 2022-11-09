@@ -11,7 +11,6 @@ import { styles } from "./css/style";
 import { ipnode } from "../../../../config/ip";
 
 export default function Main() {
-  
   const [nomecompleto, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
@@ -76,8 +75,14 @@ export default function Main() {
     </ScrollView>
   );
 }
-function efetuarCadastro() {
-  if (nomecompleto == "" || email == "" || cpf == "" || login == "" || senha == "") {
+function efetuarCadastro(nomecompleto, email, cpf, usuario, senha) {
+  if (
+    nomecompleto == "" ||
+    email == "" ||
+    cpf == "" ||
+    usuario == "" ||
+    senha == ""
+  ) {
     return Alert.alert("Erro", "Você deve preencher todos os campos");
   }
   fetch(`${ipnode}/api/clientes/cadastro`, {
@@ -88,7 +93,7 @@ function efetuarCadastro() {
     },
     body: JSON.stringify({
       nome: nomecompleto,
-      usuario: login,
+      login: usuario,
       email: email,
       cpf: cpf,
       senha: senha,
