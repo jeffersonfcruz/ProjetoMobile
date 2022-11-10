@@ -23,6 +23,7 @@ let idus = 0;
 
 export default function Content(props) {
   const { codigo } = props;
+  console.log(`uuid: ${uuidv4()}`)
 
   const [carregando, setcarregando] = useState(true);
 
@@ -103,7 +104,7 @@ function inserircarrinho(idproduto,nomeproduto,preco,quantidade) {
     },
     body: JSON.stringify({
       idusuario: idus,
-      chavecarrinho: uuidv4(),
+      chavecarrinho: "888888",
       idproduto: idproduto,
       nomeproduto: nomeproduto,
       preco: preco,

@@ -29,8 +29,10 @@ export default function Carrinho() {
   );
 }
 function ItemCarrinho({ navigation }) {
+  return (
   <View style={styles.pagcarrinho}>
     <Header />
     <Content tela = {navigation}/>
-  </View>;
+  </View>
+  )
 }
