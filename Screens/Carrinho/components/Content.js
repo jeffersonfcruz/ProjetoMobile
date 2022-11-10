@@ -15,7 +15,10 @@ import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("mystore.banco");
 
+let idus = 0;
+
 export default function Content(props) {
+  obterId();
   const { idcli } = props;
 
   const [carregando, setCarregando] = useState(true);
@@ -34,7 +37,7 @@ export default function Content(props) {
   ]);
 
   useEffect(() => {
-    fetch(`${ipnode}/api/clientes/carrinho/${obterId()}`)
+    fetch(`${ipnode}/api/clientes/carrinho/${idus}`)
       .then((response) => response.json())
       .then((rs) => {
         setProdutos(rs.output);
@@ -76,7 +79,10 @@ export default function Content(props) {
         </View>
       )}
       <TouchableOpacity
-        onPress={() => alert("Fechar")}
+        onPress={() => {
+          fecharPedido(idus);
+          props.tela.navigate("Pagamento")
+        }}
         style={styles.fecharpedido}
       >
         <Text style={styles.txtfecharpedido}>Finalizar Compra</Text>
@@ -96,4 +102,19 @@ async function obterId() {
       }
     );
   });
+}
+
+function fecharPedido(idcli){
+  if(!idcli){
+    return Alert.alert("Erro","Id do usuário não encontrado para realizar o fechamento do pedido");
+  }
+  console.log(`Rota pagamento -> ${ipnode}/api/carrinho/pagamento/${idcli}`);
+  fetch(`${ipnode}/api/carrinho/pagamento/${idcli}`,{
+    method:"DELETE",
+    headers:{
+      "accept":"application/json",
+      "content-type":"application/json"
+    }
+  }).then((response)=>response.json())
+  .catch((erro)=>console.error({error: `Erro ao tentar executar a api -> ${erro}`}))
 }
