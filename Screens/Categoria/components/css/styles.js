@@ -1,6 +1,22 @@
 import { StyleSheet } from "react-native";
 
-export const content = StyleSheet.create({
+export const headercategoria = StyleSheet.create({
+  fullview: {
+    flex: 0,
+  },
+  header: {
+    flexDirection: "row",
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 50,
+  },
+  logo: {
+    width: 90,
+    height: 90,
+    marginLeft: "auto",
+    marginRight: "auto",
+    resizeMode: "contain",
+  },
   viewprincipal: {
     flex: 2,
   },
@@ -18,6 +34,7 @@ export const content = StyleSheet.create({
   },
   viewprodutos: {
     marginTop: 10,
+    backgroundColor: "red",
   },
   produtos: {
     borderBottomColor: "black",

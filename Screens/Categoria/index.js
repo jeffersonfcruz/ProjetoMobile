@@ -1,23 +1,12 @@
-import { Text, View,TouchableNativeFeedback, Image } from "react-native";
-import { ipnode } from "../../config/ip";
-import { useEffect, useState } from "react";
-import { headercategoria } from "./css/styles";
+import { Text, View } from "react-native";
+import Header from "./components/Header";
+import Content from "./components/Content";
 
-export default function Categoria(props) {
-  //const [carregando, setcarregando] = useState(true);
-
+export default function Categoria({ navigation }) {
   return (
-    <View style={headercategoria.fullview}>
-      <View style={headercategoria.header}>
-        <TouchableNativeFeedback
-          background={TouchableNativeFeedback.SelectableBackground()}
-        >
-          <Image
-            source={require("../../assets/logo.png")} 
-            style={headercategoria.logo}
-          />
-        </TouchableNativeFeedback>
-      </View>
+    <View>
+      <Header />
+      <Content tela={navigation} />
     </View>
   );
 }

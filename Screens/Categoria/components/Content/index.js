@@ -8,8 +8,8 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import { content } from "./css/style";
 import { ipnode } from "../../../../config/ip";
+import { headercategoria } from "../css/styles";
 
 export default function Content(props) {
   const [carregando, setcarregando] = useState(true);
@@ -30,31 +30,29 @@ export default function Content(props) {
       .then((rs) => {
         setProdutos(rs.output);
         setcarregando(false);
+        console.log(rs.output);
       })
       .catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
   }, []);
 
   return (
-    <View style={content.viewprincipal}>
-      <View style={content.viewfind}>
+    <View style={headercategoria.viewprincipal}>
+      <View style={headercategoria.viewfind}>
         <Image
           source={require("../../../../assets/search_icon.png")}
-          style={content.search}
+          style={headercategoria.search}
         />
         <TextInput
-          style={content.input}
+          style={headercategoria.input}
           placeholder="Pesquisar"
           keyboardType="default"
           onChangeText={setSearchWord}
         />
       </View>
-      <View style={content.banner}>
-        <Image
-          source={require("../../../../assets/nova.jpg")}
-          style={content.imgbanner}
-        />
-      </View>
-      <ScrollView horizontal={false} contentContainerStyle={content.scrollview}>
+      <ScrollView
+        horizontal={false}
+        contentContainerStyle={headercategoria.scrollview}
+      >
         {carregando ? (
           <ActivityIndicator
             size={100}
@@ -73,8 +71,8 @@ export default function Content(props) {
               }
             })
             .map((itens, ix) => (
-              <View key={ix} style={content.viewprodutos}>
-                <View style={content.produtos}>
+              <View key={ix} style={headercategoria.viewprodutos}>
+                <View style={headercategoria.produtos}>
                   <TouchableOpacity
                     onPress={() =>
                       props.tela.navigate("Detalhes", { codigo: itens.codigo })
@@ -82,10 +80,14 @@ export default function Content(props) {
                   >
                     <Image
                       source={{ uri: `${itens.foto1}` }}
-                      style={content.imageprod}
+                      style={headercategoria.imageprod}
                     />
-                    <Text style={content.txtprod}>R$: {itens.venda}</Text>
-                    <Text style={content.txtprod1}>{itens.produto}</Text>
+                    <Text style={headercategoria.txtprod}>
+                      R$: {itens.venda}
+                    </Text>
+                    <Text style={headercategoria.txtprod1}>
+                      {itens.produto}
+                    </Text>
                   </TouchableOpacity>
                 </View>
               </View>

@@ -35,17 +35,6 @@ export default function Header(props) {
           />
         </TouchableNativeFeedback>
       </View>
-      <View style={telaheader.viewfind}>
-        <Image
-          source={require("../../../../assets/search_icon.png")}
-          style={telaheader.search}
-        />
-        <TextInput
-          style={telaheader.input}
-          placeholder="Pesquisar"
-          keyboardType="default"
-        />
-      </View>
     </View>
   );
 }

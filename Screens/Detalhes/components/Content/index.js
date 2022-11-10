@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { detalhes } from "./css/Styles";
 import { useEffect, useState } from "react";
-import { ipnode } from "../../../config/ip";
+import { ipnode } from "../../../../config/ip";
 
 export default function Content(props) {
   const { codigo } = props;

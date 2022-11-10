@@ -1,7 +1,6 @@
 import { ScrollView, View } from "react-native";
-import Content from "./Content";
-import Header from "./Header";
-
+import Header from "./components/Header";
+import Content from "./components/Content";
 export default function Detalhes({ route }) {
   const { codigo } = route.params;
 

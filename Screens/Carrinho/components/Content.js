@@ -9,7 +9,7 @@ import {
   Pressable,
 } from "react-native";
 import { ipnode } from "../../../config/ip";
-import { styles } from "../css/Styles";
+import { styles } from "../components/css/Styles";
 
 import * as SQLite from "expo-sqlite";
 
@@ -34,7 +34,7 @@ export default function Content(props) {
   ]);
 
   useEffect(() => {
-    fetch(`${ipnode}/api/clientes/carrinho/2`)
+    fetch(`${ipnode}/api/clientes/carrinho/${obterId()}`)
       .then((response) => response.json())
       .then((rs) => {
         setProdutos(rs.output);

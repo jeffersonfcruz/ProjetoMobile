@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <View style={telaheader.header}>
       <Image
-        source={require("../../../assets/logo.png")}
+        source={require("../../../../assets/logo.png")}
         style={telaheader.logo}
       />
     </View>
