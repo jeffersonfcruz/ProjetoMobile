@@ -15,6 +15,8 @@ import { ipnode } from "../../../../config/ip";
 import { v4 as uuidv4 } from 'uuid';
 
 
+import * as SQLite from "expo-sqlite";
+
 const db = SQLite.openDatabase("mystore.banco");
 
 let idus = 0;
