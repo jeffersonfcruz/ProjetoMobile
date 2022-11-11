@@ -8,12 +8,11 @@ import {
   ActivityIndicator,
   ScrollView,
   Pressable,
+  TextInput,
 } from "react-native";
 import { detalhes } from "./css/Styles";
 import { useEffect, useState } from "react";
 import { ipnode } from "../../../../config/ip";
-import { v4 as uuidv4 } from 'uuid';
-
 
 import * as SQLite from "expo-sqlite";
 
@@ -23,7 +22,8 @@ let idus = 0;
 
 export default function Content(props) {
   const { codigo } = props;
-  console.log(`uuid: ${uuidv4()}`)
+
+  const [quantidade, setQuantidade] = useState("");
 
   const [carregando, setcarregando] = useState(true);
 
@@ -32,6 +32,7 @@ export default function Content(props) {
     produto: "",
     descricao: "",
     categoria: "",
+    quantidade: "1",
     tamanho: "",
     venda: "",
     foto1: "",
@@ -83,9 +84,28 @@ export default function Content(props) {
 
           <Text style={detalhes.nomeroupa}>{produtos.produto} </Text>
           <Text style={detalhes.tamanho}>{produtos.tamanho} </Text>
+          <View style={detalhes.viewquantidade}>
+            <Text style={detalhes.txtquantidade}>Digite a Quantidade</Text>
+            <TextInput
+              style={detalhes.quantidade}
+              keyboardType="numeric"
+              value={quantidade}
+              onChangeText={(value) => setQuantidade(value)}
+            />
+          </View>
           <Text style={detalhes.descricao}>{produtos.descricao} </Text>
           <Text style={detalhes.precoroupa}>R$: {produtos.venda} </Text>
-          <Pressable onPress={()=>inserircarrinho(produtos.idproduto,produtos.nomeproduto,produtos.preco,produtos.quantidade)} style={detalhes.btnadicionar}>
+          <Pressable
+            onPress={() =>
+              inserircarrinho(
+                produtos.codigo,
+                produtos.produto,
+                produtos.preco,
+                produtos.quantidade
+              )
+            }
+            style={detalhes.btnadicionar}
+          >
             <Text style={detalhes.txtadicionar}> Adicionar ao Carrinho </Text>
           </Pressable>
         </View>
@@ -94,27 +114,29 @@ export default function Content(props) {
   );
 }
 
-function inserircarrinho(idproduto,nomeproduto,preco,quantidade) {
+function inserircarrinho(codigo, produto, venda, quantidade) {
   obterId();
-  fetch(`${ipnode}/api/usuarios/carrinho`, {
+  fetch(`${ipnode}/api/clientes/carrinho`, {
     method: "POST",
     headers: {
       accept: "application/json",
       "content-type": "application/json",
     },
+
     body: JSON.stringify({
-      idusuario: idus,
-      chavecarrinho: "888888",
-      idproduto: idproduto,
-      nomeproduto: nomeproduto,
-      preco: preco,
+      idcli: idus,
+      chavecarrinho: "difjfi",
+      codigo: codigo,
+      nomeproduto: produto,
+      preco: venda,
       quantidade: quantidade,
-      subtotal: (quantidade*preco)
+      subtotal: quantidade * venda,
     }),
   })
     .then((response) => response.json())
     .then((rs) => console.log(rs))
     .catch((erro) => console.error(`Erro -> ${erro}`));
+  console.log();
 }
 
 async function obterId() {

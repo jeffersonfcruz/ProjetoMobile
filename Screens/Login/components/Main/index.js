@@ -94,7 +94,6 @@ function efetuarLogin(usuario, senha) {
   })
     .then((response) => response.json())
     .then((rs) => {
-      console.log(rs.payload[0].idcli);
       gravarusuario(rs.payload[0].idcli, rs.output, rs.token);
     })
     .catch((err) => console.error(`Erro -> ${err}`));

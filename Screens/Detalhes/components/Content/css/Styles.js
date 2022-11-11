@@ -21,6 +21,26 @@ export const detalhes = StyleSheet.create({
     marginTop: 10,
     color: "black",
   },
+  viewquantidade: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  txtquantidade: {
+    fontSize: 25,
+  },
+  quantidade: {
+    backgroundColor: "silver",
+    borderRadius: 20,
+    width: 50,
+    height: 50,
+    alignSelf: "center",
+    left: 20,
+    fontSize: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingLeft: 20,
+  },
   tamanho: {
     fontSize: 25,
     fontWeight: "bold",
@@ -40,7 +60,6 @@ export const detalhes = StyleSheet.create({
     backgroundColor: "silver",
     width: "50%",
     borderRadius: 15,
-    marginTop: 40,
   },
   roupa: {
     resizeMode: "contain",
@@ -53,7 +72,7 @@ export const detalhes = StyleSheet.create({
   btnadicionar: {
     width: 250,
     height: 50,
-    marginTop: 30,
+    marginTop: 20,
     marginRight: "auto",
     marginLeft: "auto",
     backgroundColor: "#1d0940",

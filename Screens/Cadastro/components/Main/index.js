@@ -10,7 +10,7 @@ import {
 import { styles } from "./css/style";
 import { ipnode } from "../../../../config/ip";
 
-export default function Main() {
+export default function Main(props) {
   const [nomecompleto, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
@@ -67,6 +67,8 @@ export default function Main() {
           style={styles.btntccadastrar}
           onPress={() => {
             efetuarCadastro(nomecompleto, email, cpf, usuario, senha);
+            Alert.alert("Cadastro efetuado");
+            props.acao.navigate("Home");
           }}
         >
           <Text style={styles.txtcadastrar}>Cadastrar</Text>

@@ -12,7 +12,6 @@ import { ipnode } from "../../../config/ip";
 import { styles } from "../components/css/Styles";
 
 import * as SQLite from "expo-sqlite";
-
 const db = SQLite.openDatabase("mystore.banco");
 
 let idus = 0;
@@ -28,10 +27,10 @@ export default function Content(props) {
       idcarrinho: "",
       idcli: "",
       chavecarrinho: "",
-      idproduto: "",
+      codigo: "",
       nomeproduto: "",
-      preco: "",
       quantidade: "",
+      preco: "",
       subtotal: "",
     },
   ]);
@@ -42,7 +41,7 @@ export default function Content(props) {
       .then((rs) => {
         setProdutos(rs.output);
         setCarregando(false);
-        console.log(rs.output);
+        //console.log(rs.output);
       })
       .catch((erro) => console.error(`Erro ao executar a api -> ${erro}`));
   }, []);
@@ -80,8 +79,8 @@ export default function Content(props) {
       )}
       <TouchableOpacity
         onPress={() => {
-          fecharPedido(idus);
-          props.tela.navigate("Pagamento")
+          fecharPedido(idcli);
+          props.tela.navigate("Pagamento");
         }}
         style={styles.fecharpedido}
       >
@@ -90,31 +89,37 @@ export default function Content(props) {
     </View>
   );
 }
-async function obterId() {
-  let id = 0;
-  await db.transaction((ds) => {
+
+function obterId() {
+  db.transaction((ds) => {
     ds.executeSql(
       `select idusuario from dados order by id desc`,
       [],
       (_, { rows }) => {
         console.log(rows._array[0].idcli);
-        id = rows._array[0].idcli;
+        idcli = rows._array[0].idcli;
       }
     );
   });
 }
 
-function fecharPedido(idcli){
-  if(!idcli){
-    return Alert.alert("Erro","Id do usuário não encontrado para realizar o fechamento do pedido");
+function fecharPedido(idcli) {
+  if (!idcli) {
+    return Alert.alert(
+      "Erro",
+      "Id do usuário não encontrado para realizar o fechamento do pedido"
+    );
   }
   console.log(`Rota pagamento -> ${ipnode}/api/carrinho/pagamento/${idcli}`);
-  fetch(`${ipnode}/api/carrinho/pagamento/${idcli}`,{
-    method:"DELETE",
-    headers:{
-      "accept":"application/json",
-      "content-type":"application/json"
-    }
-  }).then((response)=>response.json())
-  .catch((erro)=>console.error({error: `Erro ao tentar executar a api -> ${erro}`}))
+  fetch(`${ipnode}/api/carrinho/pagamento/${idcli}`, {
+    method: "DELETE",
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .catch((erro) =>
+      console.error({ error: `Erro ao tentar executar a api -> ${erro}` })
+    );
 }

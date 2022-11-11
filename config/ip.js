@@ -1,1 +1,1 @@
-export const ipnode = "http://10.26.49.161:3000";
+export const ipnode = "http://192.168.1.190:3000";
